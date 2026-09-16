@@ -60,6 +60,21 @@ public class HunterNPC : AutonomousAgent
         attackTimer = tba;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        // Rango de Visión (Amarillo)
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, visionRadius);
+
+        // Rango de Ataque a Distancia (Naranja)
+        Gizmos.color = new Color(1f, 0.5f, 0f);
+        Gizmos.DrawWireSphere(transform.position, rangeAttackRadius);
+
+        // Rango de Ataque Cuerpo a Cuerpo (Rojo)
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, meleeAttackRadius);
+    }
+
     public void SpawnInterestObject()
     {
         // Limpiamos la lista de objetos destruidos
